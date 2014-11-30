@@ -1,0 +1,47 @@
+<polymer-element name="ghost-checkbox" extends="paper-checkbox">
+    <template>
+        <shadow></shadow>
+    </template>
+    <script>
+        Polymer('ghost-checkbox', {
+            inputElement: false,
+            labelElement: false,
+            
+            ready: function() {
+                
+                function getElements(nodeList, object) {
+                    for (var i = 0; i < nodeList.length; i++) {
+                        if (nodeList[i].children.length) {
+                            getElements(nodeList[i].children, object);
+                        }
+                        
+                        if (nodeList[i].nodeName == "INPUT") {
+                            object.inputElement = nodeList[i];
+                        } else if (nodeList[i].nodeName == "LABEL") {
+                            object.labelElement = nodeList[i];
+                        }
+                    }
+                }
+        
+                getElements(this.children, this);
+        
+                if (this.labelElement) {
+                    this.label = this.labelElement.innerHTML.replace(/<\/?[^>]+(>|$)/g, "");
+                    this.labelElement.style.display = "none";
+                }
+                
+                if (this.inputElement) {
+                    this.checked = this.inputElement.checked;
+                    this.inputElement.style.display = "none";
+                }
+                
+                this.super();
+            },
+            
+            checkedChanged: function(e) {
+                this.inputElement && (this.inputElement.checked = this.checked);
+                this.super();
+            },
+        });
+    </script>
+</polymer-element>

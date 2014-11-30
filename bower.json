@@ -1,0 +1,7 @@
+{
+    "name": "ghost-checkbox",
+    "homepage": "https://github.com/PolymerGhost/ghost-checkbox",
+    "dependencies": {
+        "paper-checkbox": "Polymer/paper-checkbox#master"
+    }
+}
