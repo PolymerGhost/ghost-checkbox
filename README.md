@@ -8,6 +8,22 @@ Ghost-checkbox uses the underlying input to retrieve and store the checked
 value, so it can be easily used without changing any of the existing application
 logic.
 
+## Installation
+
+To install ghost-checkbox, add it to the dependencies section of bower.json:
+
+```
+  "dependencies": {
+    "ghost-checkbox": "PolymerGhost/ghost-checkbox#master"
+  }
+```
+
+Then add the link to your html head:
+
+```html
+<link rel="import" href="bower_components/ghost-checkbox/ghost-checkbox.html">
+```
+
 ## Usage
 
 To use it, simply wrap the existing checkbox input element in the ghost-checkbox
